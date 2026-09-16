@@ -1,0 +1,9 @@
+# Secrets — kabhi commit mat karna
+.env
+
+# Generated test/build outputs
+out/
+
+# Node
+node_modules/
+npm-debug.log*

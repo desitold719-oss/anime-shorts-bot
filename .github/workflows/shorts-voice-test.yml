@@ -1,0 +1,32 @@
+name: Shorts Voice Test (Phase 1 - TTS)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tts-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Inworld TTS test (Hindi voice + word timestamps)
+        env:
+          INWORLD_API_KEY: ${{ secrets.INWORLD_API_KEY }}
+        run: node scripts/tts-test.mjs
+
+      - name: Upload MP3 + timestamps artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tts-test-${{ github.run_id }}
+          path: out/tts-test/
+          retention-days: 7
+          if-no-files-found: error
