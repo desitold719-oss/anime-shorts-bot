@@ -1,0 +1,13 @@
+{
+  "name": "anime-shorts-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Daily 2x Hindi anime-facts YouTube Shorts pipeline (voice → script → video → upload)",
+  "scripts": {
+    "tts:test": "node scripts/tts-test.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
